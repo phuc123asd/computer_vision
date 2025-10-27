@@ -13,7 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = SimpleCNN().to(device)
 model.load_state_dict(torch.load("cnn_animal_weights.pth", map_location=device))
 model.eval()
-print("✅ Model loaded and ready for prediction.")
+print("Model loaded and ready for prediction.")
 
 # -----------------------------
 # 2️ Transform ảnh đầu vào
