@@ -212,7 +212,11 @@ choose_btn = tk.Button(button_frame,
                       cursor="hand2")
 choose_btn.pack()
 
+<<<<<<< HEAD
 # -----------------------------
+=======
+# ----------------------------
+>>>>>>> 200e96f (first commit)
 # FOOTER
 # -----------------------------
 footer_frame = tk.Frame(root, bg=style["bg"])
