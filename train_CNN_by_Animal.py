@@ -11,18 +11,18 @@ from CustomImageDataset import CustomImageDataset
 
 if __name__ == '__main__':
     # -----------------------------
-    # 1️⃣ Device configuration
+    # 1️ Device configuration
     # -----------------------------
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     print(f"Using device: {device}")
-    # 🧠 Gọi hàm để lấy dữ liệu
+    # Gọi hàm để lấy dữ liệu
     train_data, test_data, label_dict = load_dataset()
 
     print(f"Train samples: {len(train_data)}")
     print(f"Test samples: {len(test_data)}")
     print("Classes:", label_dict)
 
-    # 🎨 Tiền xử lý ảnh
+    # Tiền xử lý ảnh
     transform = transforms.Compose([
         transforms.Resize((128, 128)),
         transforms.ToTensor(),
@@ -30,18 +30,18 @@ if __name__ == '__main__':
     ])
 
 
-    # 🔹 Tạo DataLoader
+    # Tạo DataLoader
     train_loader = DataLoader(CustomImageDataset(train_data, transform), batch_size=32, shuffle=True)
     test_loader = DataLoader(CustomImageDataset(test_data, transform), batch_size=32)
     
     # -----------------------------
-    # 3️⃣ Initialize model, loss, optimizer
+    # 3️ Initialize model, loss, optimizer
     # -----------------------------
     model = SimpleCNN().to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=1e-3, momentum=0.9)
     # -----------------------------
-    # 4️⃣ Training loop
+    # 4️ Training loop
     # -----------------------------
     num_epochs = 100
     num_iters = len(train_loader)
@@ -69,12 +69,12 @@ if __name__ == '__main__':
         print(f"Epoch [{epoch+1}/{num_epochs}] finished, Average loss: {running_loss / num_iters:.4f}")
     
     # -----------------------------
-    # 💾 6️⃣ Save trained weights
+    # Save trained weights
     # -----------------------------
     torch.save(model.state_dict(), "cnn_animal_weights.pth")
-    print("✅ Model weights saved to cnn_animal_weights.pth")
+    print("Model weights saved to cnn_animal_weights.pth")
     # -----------------------------
-    # 5️⃣ Testing phase
+    # 5️ Testing phase
     # -----------------------------
     model.eval()
     correct = 0
@@ -89,5 +89,5 @@ if __name__ == '__main__':
             correct += (predicted == labels).sum().item()
 
     accuracy = 100 * correct / total
-    print(f"\n✅ Test Accuracy: {accuracy:.2f}%")
+    print(f"\nTest Accuracy: {accuracy:.2f}%")
 

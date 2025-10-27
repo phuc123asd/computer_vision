@@ -4,7 +4,7 @@ from PIL import Image
 from torch.utils.data import Dataset, DataLoader
 import torch
 
-# 🧱 Tạo Dataset tuỳ chỉnh từ 2 list
+# Tạo Dataset tuỳ chỉnh từ 2 list
 class CustomImageDataset(Dataset):
     def __init__(self, data, transform=None):
         self.data = data

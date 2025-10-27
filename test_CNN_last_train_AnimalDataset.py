@@ -7,7 +7,7 @@ from tkinter import filedialog
 import torch.nn as nn
 
 # -----------------------------
-# 1️⃣ Load model
+# 1️ Load model
 # -----------------------------
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model = SimpleCNN().to(device)
@@ -16,7 +16,7 @@ model.eval()
 print("✅ Model loaded and ready for prediction.")
 
 # -----------------------------
-# 2️⃣ Transform ảnh đầu vào
+# 2️ Transform ảnh đầu vào
 # -----------------------------
 transform = transforms.Compose([
     transforms.Resize((128, 128)),
@@ -26,14 +26,14 @@ transform = transforms.Compose([
 ])
 
 # -----------------------------
-# 3️⃣ Label dictionary
+# 3️ Label dictionary
 # -----------------------------
 label_dict = {"Con Chó": 0, "Con Ngựa": 1, "Con Voi": 2, "Con Bướm": 3, "Con Gà": 4,
               "Con Mèo": 5, "Con Bò": 6, "Con Cừu": 7, "Con Nhện": 8, "Con Sóc": 9}
 
 
 # -----------------------------
-# 4️⃣ Hàm dự đoán
+# 4️ Hàm dự đoán
 # -----------------------------
 def predict_image(img_path):
     img = Image.open(img_path).convert("RGB")
@@ -51,7 +51,7 @@ def predict_image(img_path):
 
 
 # -----------------------------
-# 5️⃣ Giao diện Tkinter - THIẾT KẾ MỚI
+# 5️ Giao diện Tkinter - THIẾT KẾ MỚI
 # -----------------------------
 root = tk.Tk()
 root.title("🐾 Phân loại súc vật - AI Pro")

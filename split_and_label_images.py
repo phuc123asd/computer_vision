@@ -2,7 +2,7 @@
 import os
 import random
 
-# 🧭 Đường dẫn dữ liệu
+# Đường dẫn dữ liệu
 root_dir = r"D:\workspace\hoc_python\dl_for_computer_vision\raw-img"
 train_ratio = 0.8
 

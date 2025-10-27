@@ -1,13 +1,13 @@
 import os
 import csv
 
-# 🧭 Đường dẫn chứa dữ liệu ảnh
+# Đường dẫn chứa dữ liệu ảnh
 root_dir = r"D:\workspace\hoc_python\dl_for_computer_vision\raw-img"
 
-# 📝 File CSV xuất ra
+# File CSV xuất ra
 output_csv = os.path.join(root_dir, "labels.csv")
 
-# 🧠 Danh sách kết quả
+# Danh sách kết quả
 rows = []
 
 # Duyệt qua các thư mục con (mỗi thư mục = 1 class)
@@ -27,5 +27,5 @@ with open(output_csv, mode="w", newline="", encoding="utf-8") as f:
     writer.writerow(["file_path", "label"])
     writer.writerows(rows)
 
-print(f"✅ Total images: {len(rows)}")
-print(f"📄 Labels saved to: {output_csv}")
+print(f"Total images: {len(rows)}")
+print(f"Labels saved to: {output_csv}")
