@@ -1,6 +1,7 @@
 import torch
 import torch.nn as nn
-
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.linear_model import LinearRegression
 
 class SimpleCNN(nn.Module):
     def __init__(self, num_classes=10):
@@ -46,6 +47,33 @@ class SimpleCNN(nn.Module):
         x = self.fc2(x)
         x = self.fc3(x)
         return x
+# -----------------------------
+# KNN wrapper
+# -----------------------------
+class KNNModel:
+    def __init__(self, n_neighbors=3):
+        self.model = KNeighborsClassifier(n_neighbors=n_neighbors)
+
+    def fit(self, X, y):
+        self.model.fit(X, y)
+
+    def predict(self, X):
+        return self.model.predict(X)
+
+# -----------------------------
+# Linear Regression wrapper
+# -----------------------------
+class LinearRegModel:
+    def __init__(self):
+        self.model = LinearRegression()
+
+    def fit(self, X, y):
+        self.model.fit(X, y)
+
+    def predict(self, X):
+        # Dự đoán số thực → round về integer class
+        pred = self.model.predict(X)
+        return np.rint(pred).astype(int)
 if __name__ == '__main__':
     model = SimpleCNN()
     input_data = torch.rand(1, 3, 128, 128)
