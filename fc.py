@@ -6,15 +6,15 @@ class FC(nn.Module):
         super().__init__()
         self.flatten = nn.Flatten()
         self.fc1 = nn.Sequential(
-            nn.Linear(in_features=49152 , out_features=512),
+            nn.Linear(in_features=49152 , out_features=50),
             nn.ReLU(),
         )
         self.fc2 = nn.Sequential(
-            nn.Linear(in_features=512 , out_features=1024),
+            nn.Linear(in_features=50 , out_features=10),
             nn.ReLU(),
         )
         self.fc3 = nn.Sequential(
-            nn.Linear(in_features=1024 , out_features=num_classes),
+            nn.Linear(in_features=10 , out_features=num_classes),
             nn.ReLU(),
         )
     def forward(self, x):
