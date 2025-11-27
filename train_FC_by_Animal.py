@@ -37,7 +37,7 @@ if __name__ == '__main__':
     # -----------------------------
     # 4️ Training loop
     # -----------------------------
-    num_epochs = 100
+    num_epochs = 10
     num_iters = len(train_loader)
     for epoch in range(num_epochs):
         model.train()
