@@ -46,28 +46,6 @@ class SimpleCNN(nn.Module):
         x = self.fc2(x)
         x = self.fc3(x)
         return x
-class SimpleNN(nn.Module):
-    def __init__(self, number_class=10):
-        super().__init__()
-        self.flatten = nn.Flatten()
-        self.fc1 = nn.Sequential(
-            nn.Linear(in_features=3*32*32 , out_features=256),
-            nn.ReLU(),
-            nn.Linear(in_features=256, out_features=512),
-            nn.ReLU(),
-            nn.Linear(in_features=512, out_features=1024),
-            nn.ReLU(),
-            nn.Linear(in_features=1024, out_features=512),
-            nn.ReLU(),
-            nn.Linear(in_features=512, out_features=number_class),
-            nn.ReLU()
-        )
-        
-    
-    def forward(self, x):
-        x = self.flatten(x)
-        x = self.fc1(x)       
-        return x
 if __name__ == '__main__':
     model = SimpleCNN()
     input_data = torch.rand(1, 3, 128, 128)
