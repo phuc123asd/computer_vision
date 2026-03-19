@@ -40,38 +40,6 @@ The project is built to not only achieve high accuracy but also to **compare mod
 
 ---
 
-### 🔹 Machine Learning
-
-* **K-Nearest Neighbors (KNN)**
-
-  * Simple yet effective baseline
-  * Works on flattened image features
-
-* **Linear Regression**
-
-  * Used as a classification approximation
-  * Demonstrates limitations of linear models in vision tasks
-
----
-
-## ⚙️ Key Features
-
-✅ Multi-model comparison (CNN vs FC vs KNN vs Linear Regression)
-✅ Custom dataset loader using PyTorch
-✅ Dynamic preprocessing pipeline:
-
-* Resize → Normalize → Tensor conversion
-
-✅ Interactive GUI:
-
-* Upload image
-* Instant prediction
-* Visual feedback
-
-✅ Modular and clean code structure
-
----
-
 ## 🖥️ Demo
 
 ### 🎥 Demo Image
@@ -82,6 +50,12 @@ The project is built to not only achieve high accuracy but also to **compare mod
 ---
 
 ### 🧪 Demo Preview (GUI)
+
+<p align="center">
+<a href="https://youtu.be/2rDx8kwE-kY">
+<img src="https://img.youtube.com/vi/2rDx8kwE-kY/0.jpg" width="800">
+</a>
+</p>
 
 ```
 [ User clicks "CHỌN ẢNH" ]
